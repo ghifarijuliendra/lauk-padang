@@ -13,7 +13,7 @@ func NewCategoryService(repo *repositories.CategoryRepository) *CategoryService 
 	return &CategoryService{repo: repo}
 }
 
-func (s *CategoryService) GetAll() ([]models.Category, error) {
+func (s *CategoryService) GetAll(name) ([]models.Category, error) {
 	return s.repo.GetAll()
 }
 

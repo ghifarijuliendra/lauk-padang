@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"lauk-padang/models"
 	"lauk-padang/services"
 	"net/http"
@@ -30,6 +31,8 @@ func (h *CategoryHandler) HandleCategories(w http.ResponseWriter, r *http.Reques
 }
 
 func (h *CategoryHandler) GetAll(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query().Get("name")
+	fmt.Println(name) // Debugging line
 	category, err := h.service.GetAll()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
